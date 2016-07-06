@@ -1,9 +1,7 @@
 FROM centos:centos7
 MAINTAINER Marco Mornati <marco@mornati.net>
 
-RUN yum clean all
-RUN yum -y update
-RUN yum -y insall epel-release
+RUN yum clean all && yum -y update && yum -y install epel-release
 
 #Install Mock Package
 RUN yum -y install mock 
@@ -22,6 +20,6 @@ ADD ./build-rpm.sh /build-rpm.sh
 RUN chmod +x /build-rpm.sh
 #RUN setcap cap_sys_admin+ep /usr/sbin/mock
 
-USER builder
+#USER builder
 ENV HOME /home/builder
 CMD ["/build-rpm.sh"]
