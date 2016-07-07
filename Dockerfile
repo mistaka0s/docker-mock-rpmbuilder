@@ -4,7 +4,7 @@ MAINTAINER Marco Mornati <marco@mornati.net>
 RUN yum clean all && yum -y update && yum -y install epel-release
 
 #Install Mock Package
-RUN yum -y install mock 
+RUN yum -y install mock git
 
 #Configure users
 RUN useradd -u 1000 builder
